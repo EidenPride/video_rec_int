@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aliance Recorder</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div style="height: 100vh;" id="app">
+    <div id="server_status_bar" class="grounded-radiants container status">
+        <h3 style="margin: auto;">Видеорегистратор "Контроллер - А", сервер - {{SERVER_DATA.SERVER_URL}}:{{SERVER_DATA.SERVER_PORT}}. Статус регистратора - <span class="text-underline text-bold" :class="[SERVER_DATA.SERVER_STATUS ? 'text-color-green': 'text-color-red']">{{SERVER_DATA.SERVER_STATUS ? SERVER_DATA.SERVER_CONDITIONS.ON : SERVER_DATA.SERVER_CONDITIONS.OFF}}</span></h3>
+        <button class="button-server-info-update" v-on:click="set_update()">ОБНОВИТЬ</button>
+    </div>
+
+    <div id="cameras_info" class="grounded-radiants cameras-info">
+        <div class="headers">
+            <h3>Камеры</h3>
+            <button class="button-server-info-update" style="margin-left: 10px;" v-on:click="show_camera_info(true)">
+                <img src="./img/plus.png" />
+            </button>
+        </div>
+        <div class="table"></div>
+    </div>
+
+    <div v-if="show_server_options" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span>Адрес сервера регистратора</span>
+            <input type="text" v-model="SERVER_TEMP.SERVER_URL">
+            <span>Порт сервера регистратора</span>
+            <input type="text" v-model="SERVER_TEMP.SERVER_PORT">
+            <button class="button-server-info-update" v-on:click="save_update()">СОХРАНИТЬ</button>
+        </div>
+    </div>
+
+    <div v-if="show_camera_options" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content" style="width: 25%">
+            <span>Индентификатор камеры </span>
+            <span style="margin-top: 0px;">(используется для подключения через API)</span>
+            <input type="text" v-model="CAMERA_TEMP.CamName">
+            <span>Логин для доступа к видео потоку</span>
+            <input type="text" v-model="CAMERA_TEMP.CamLogin">
+            <span>Пароль для доступа к видео потоку</span>
+            <input type="text" v-model="CAMERA_TEMP.CamPassword">
+            <span>IP адрес потока камеры</span>
+            <input type="text" v-model="CAMERA_TEMP.CamIP">
+            <span>Описание камеры </span>
+            <span style="margin-top: 0px;">(передается через API)</span>
+            <textarea type="text" v-model="CAMERA_TEMP.CamDescription"></textarea>
+            <div>
+                <button class="button-server-info-update" v-on:click="save_update()">СОХРАНИТЬ</button>
+                <button class="button-server-info-update" v-on:click="save_update()">ПРОВЕРИТЬ</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>

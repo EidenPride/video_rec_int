@@ -1,0 +1,151 @@
+body {
+    height: 100vh;
+    margin: 0;
+    /* display: grid;*/
+    place-items: center;
+    background: #b2c4ff;
+}
+.container {
+    color: black;
+    background-color: #ffb077;
+    min-width: 90vw;
+}
+
+.status {
+    display: flex;
+    margin: auto;
+    /*width: 80%;*/
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+    position: fixed;
+}
+
+.cameras-info {
+    margin-left: 50px;
+    margin-top: 80px;
+    width: 20%;
+    height: 80%;
+    position: fixed;
+}
+
+.cameras-info .headers {
+    display: flex;
+    margin: auto;
+    width: 90%;
+}
+
+.cameras-info img {
+    margin: auto;
+    width: 10px;
+    height: 10px;
+}
+
+.cameras-info .table {
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    -webkit-box-shadow: inset 0 0 10px #0003;
+    -moz-box-shadow: inset 0 0 10px #000;
+    box-shadow: inset 0 0 10px #0003;
+    background: #b2c4ff;
+}
+
+.grounded-radiants {
+    /*position: relative;*/
+    border: 1px solid transparent;
+    border-radius: 15px;
+    background: radial-gradient(#ffb077, #ffb077);
+    background-clip: padding-box;
+    padding: 10px;
+    /* just to show box-shadow still works fine
+    box-shadow: 0 3px 9px black, inset 0 0 9px white;*/
+}
+
+.grounded-radiants::after {
+    /*position: absolute;*/
+    top: -4px; bottom: -4px;
+    left: -4px; right: -4px;
+    background: radial-gradient(#b2c4ff, rgba(0, 0, 0, 0.03));
+    content: '';
+    z-index: -1;
+    border-radius: 20px;
+}
+
+/* The Modal (background) */
+.modal {
+    /*display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #ffb077;
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%; /* Could be more or less, depending on screen size */
+    display: grid;
+    border-radius: 15px;
+}
+
+.modal-content input {
+    -webkit-box-shadow: inset 0 0 10px #0003;
+    -moz-box-shadow: inset 0 0 10px #000;
+    box-shadow: inset 0 0 10px #0003;
+    background: white;
+    margin: 5px;
+}
+
+.modal-content textarea {
+    -webkit-box-shadow: inset 0 0 10px #0003;
+    -moz-box-shadow: inset 0 0 10px #000;
+    box-shadow: inset 0 0 10px #0003;
+    background: white;
+    height: 80px;
+}
+
+.modal-content span {
+    margin: 5px;
+}
+
+.modal-content button {
+    margin: 5px;
+}
+
+.button-server-info-update{
+    margin: auto;
+    font-family: none;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: Transparent;
+    border-radius: 15px;
+    border: 3px solid #adbef8;
+    cursor: pointer;
+}
+
+/* ЦВЕТА ДЛЯ ТЕКСТА*/
+.text-color-red {
+    color: darkred;
+}
+
+.text-color-green {
+    color: darkgreen;
+}
+
+/* СТИЛЬ ДЛЯ ТЕКСТА*/
+.text-bold {
+    font-weight: bold;
+}
+
+.text-underline {
+    text-decoration:underline;
+}
